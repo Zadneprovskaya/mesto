@@ -1,0 +1,22 @@
+.popup__line {
+    margin: 0;
+    padding: 0;
+    width: 358px;
+    margin-left: 36px;
+    opacity: 0.2;
+    border: 1px solid #000;
+}
+
+@media screen and (max-width: 1280px) {
+    .popup__line {
+        width: calc((100vw - 320px)/(1280 - 320)*(358 - 238) + 238px);
+        margin-left: calc((100vw - 320px)/(1280 - 320)*(36 - 22) + 22px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup__line {
+        width: 238px;
+        margin-left: 22px;
+    }
+}

@@ -1,0 +1,22 @@
+.element__like {
+    margin: 0;
+    position: relative;
+    left: 240px;
+    bottom: 23px;
+    max-width: 23px;
+    height: 19px;
+    margin: 0;
+    background-image: url(../../../images/Vector_serdce.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.element__like:hover {
+    opacity: 0.5;
+}
+
+.element__like:active {
+    opacity: 1;
+    background-image: url(../../../images/Vector_serdce_active.svg);
+}

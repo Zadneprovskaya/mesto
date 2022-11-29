@@ -1,0 +1,17 @@
+.profile-info__edit-button {
+    background: url(../../../images/Pensil.svg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    border: solid #fff 2px;
+    grid-area: "edit-button";
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.profile-info__edit-button:hover {
+    opacity: 0.6;
+}
