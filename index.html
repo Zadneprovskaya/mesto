@@ -21,7 +21,7 @@
             </div>
             <div class="profile__add-button"></div>
         </section>
-        <section class="list-of-elements">
+        <section class="list-of-elements" aria-label="Список карточек">
             <ul class="elements">
                 <li class="element">
                     <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Замок">
@@ -57,12 +57,11 @@
         </section>
         <section class="popup popup_opened">
             <form class="popup__container" name="popupForm">
-                <input class="popup__button-close" type="button">
+                <input class="popup__button-close" type="button" aria-label="Закрыть">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input class="popup__text popup__text_value_name" maxlength="45" type="text" placeholder="Имя" name ="newName" required>
                 <input class="popup__text popup__text_value_description" maxlength="45" type="text" placeholder="Описание" name="newDescription" required>
                 <button class="popup__submit-btn" type="submit">Сохранить</button>
-                <!-- <input class="popup__submit-btn" type="submit" value="Сохранить" name="save"> -->
             </form>
         </section>
         <footer class="footer">
