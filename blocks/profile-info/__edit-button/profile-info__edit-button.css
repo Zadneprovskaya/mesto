@@ -7,7 +7,7 @@
     width: 24px;
     height: 24px;
     border: solid #fff 2px;
-    grid-area: "edit-button";
+    grid-area: edit-button;
     box-sizing: border-box;
     cursor: pointer;
 }

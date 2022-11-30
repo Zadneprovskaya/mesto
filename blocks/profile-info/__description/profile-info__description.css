@@ -5,7 +5,7 @@
     font-size: 18px;
     line-height: 22px;
     color: #fff;
-    grid-area: "about";
+    grid-area: about;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
