@@ -6,7 +6,7 @@
     font-size: 42px;
     line-height: 114%;
     color: #fff;
-    grid-area: "name";
+    grid-area: name;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
