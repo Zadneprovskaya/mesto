@@ -12,8 +12,8 @@
     width: 32px;
     height: 32px;
     position: absolute;
-    left: 438px;
-    bottom: 338px;
+    right: -40px;
+    top: -40px;
     cursor: pointer;
 }
 
@@ -25,7 +25,8 @@
     .popup__button-close {
         width: calc((100vw - 320px)/(1280 - 320)*(32 - 20) + 20px);
         height: calc((100vw - 320px)/(1280 - 320)*(32 - 20) + 20px);
-        left: calc((100vw - 320px)/(1280 - 320)*(438 - 262) + 262px);
+        right: calc((100vw - 320px)/(1280 - 320)*(-40 + 0) - 0px);
+        top: calc((100vw - 320px)/(1280 - 320)*(-40 + 32) - 32px);
     }
 }
 
@@ -33,6 +34,7 @@
     .popup__button-close {
         width: 20px;
         height: 20px;
-        left: 262px;
+        right: 0px;
+        top: -32px;
     }
 }

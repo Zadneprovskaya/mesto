@@ -1,14 +1,15 @@
 .element__like {
     margin: 0;
-    position: relative;
-    left: 240px;
-    bottom: 23px;
-    max-width: 23px;
+    padding: 0;
+    width: 23px;
     height: 19px;
+    background: none;
     background-image: url(../../../images/Vector_serdce.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    border: none;
+    cursor: pointer;
 }
 
 .element__like:hover {
