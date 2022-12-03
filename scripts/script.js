@@ -7,9 +7,6 @@ let formElement = container.querySelector('.popup');
 let formContainer = formElement.querySelector('.popup__container');
 let formProfile = formContainer.querySelector('.popup__form-profile');
 let closeButton = formElement.querySelector('.popup__button-close');
-let nameInput = formElement.querySelector('.popup__text_value_name');
-let jobInput = formElement.querySelector('.popup__text_value_description');
-let saveButton = formElement.querySelector('.popup__submit-btn');
 let formPopup = document.forms.popupForm;
 
 
