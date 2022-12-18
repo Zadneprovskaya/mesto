@@ -46,13 +46,13 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-]; 
+];
 
 
 const openForm = classForm => {
   if (!classForm.classList.contains('popup_opened')) {
     classForm.classList.add('popup_opened');
-  } 
+  }
 }
 
 const editProfile = () => {
@@ -103,11 +103,11 @@ const imageShow = event => {
     elementImage.src = imageLink;
     elementImage.alt = imageTitle + " во весь экран";
     if(elementImage.width > elementImage.height) {
-      elementImage.style = 'width: 75vw';
+      elementImage.style = 'max-width: 75vw; max-height: 75vh';
       elementTitle.style = 'max-width: 75vw';
     }
     else {
-      elementImage.style = 'height: 75vh';
+      elementImage.style = 'max-height: 75vh';
       const windowInnerHeight = document.documentElement.clientHeight;
       const elementImageHeight = elementImage.height;
       const elementImageWidth = Math.floor((windowInnerHeight * 0.75 * 800) / elementImageHeight);
@@ -132,7 +132,7 @@ const addCard = (nameCard,linkCard) => {
 
   const elementTrash = elementCard.querySelector('.element__trash');
   elementTrash.addEventListener('click',elementDelete);
-  
+
   const elementImageShow = elementCard.querySelector('.element__image');
   elementImageShow.addEventListener('click',imageShow);
 }
@@ -148,4 +148,3 @@ initialCards.forEach((el) => {
   closeButtonPopupAdd.addEventListener ('click',closeForm);
   closeButtonPopupImage.addEventListener ('click',closeForm);
   cardAdd.addEventListener('submit', formAddSubmitHandler);
-  
