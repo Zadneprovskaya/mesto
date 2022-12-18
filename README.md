@@ -1,7 +1,8 @@
 # **Проект: Место**
 
 ### Проект интерактивной страницы Место содержит одну страницу адаптивной верстки для ширин от 320 до 1280 пикселей с формой редактирования данных пользователя. Проект реализован по дизайн-макету в Figma.
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+* [Ссылка на общий макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+* [Ссылка на дополнительный макет взаимодействия в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=50160%3A110&t=Uwr2ajWqN5H5PRxn-0)
 * [Ссылка на проект](https://zadneprovskaya.github.io/mesto/index.html)
 
 ## **Технологии:**
@@ -11,4 +12,4 @@
 *  Использование Grid Layout
 *  Использование псевдоклассов
 *  Взаимодействие с веб-страницей с помощью DOM
-*  Работа с формой с помощью JavaScript
+*  Работа с формами с помощью JavaScript

@@ -22,48 +22,7 @@
         </section>
         <section class="list-of-elements" aria-label="Список карточек">
             <ul class="elements">
-                <li class="element">
-                    <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Замок">
-                    <div class="element__group">
-                        <h2 class="element__title">Карачаевск</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Горы в дали">
-                    <div class="element__group">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Гора">
-                    <div class="element__group">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/abdur-ahmanus-vrPqM2OB9nA-unsplash.jpg" alt="Канатная дорога">
-                    <div class="element__group">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/aisvri-Eci66y0dH3E-unsplash.jpg" alt="Замок на воде">
-                    <div class="element__group">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/ivan-SKml6B6tlnA-unsplash.jpg" alt="Баран">
-                    <div class="element__group">
-                        <h2 class="element__title">Карачаево-Черкессия</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </li>
+                
             </ul>
         </section>
         <footer class="footer">
@@ -74,13 +33,45 @@
                 <button class="popup__button-close" type="button"></button>
                 <form class="popup__form-profile" name="popupForm" method="POST">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input class="popup__text popup__text_value_name" type="text" placeholder="Имя" name ="newName" required>
-                    <input class="popup__text popup__text_value_description" type="text" placeholder="Описание" name="newDescription" required>
+                    <input class="popup__text" type="text" placeholder="Имя" name ="newName" required>
+                    <input class="popup__text" type="text" placeholder="Описание" name="newDescription" required>
                     <button class="popup__submit-btn" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
+        <div class="popup-add">
+            <div class="popup-add__container">
+                <button class="popup-add__button-close" type="button"></button>
+                <form class="popup-add__form" name="popupAdd" method="POST">
+                    <h2 class="popup-add__title">Новое место</h2>
+                    <input class="popup-add__text" type="text" placeholder="Название" name ="Name" required>
+                    <input class="popup-add__text" type="url" placeholder="Ссылка на картинку" name="Link" required>
+                    <button class="popup-add__submit-btn" type="submit">Создать</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup-image">
+            <div class="popup-image__container">
+                <button class="popup-image__button-close" type="button"></button>
+                <img class="popup-image__image">
+                <p class="popup-image__title">Иваново</p>
+            </div>
+        </div>
+
     </main>
+
+    <template class="temp-element">
+        <li class="element">
+            <div class="element__image">
+              <button class="element__trash" type="button"></button>
+            </div>
+            <div class="element__group">
+                <h2 class="element__title"></h2>
+                <button class="element__like" type="button"></button>
+            </div>
+        </li>
+    </template>
+
     <script src="./scripts/script.js"></script>
 </body>
 </html>
