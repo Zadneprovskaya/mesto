@@ -21,45 +21,41 @@
             <button class="profile__add-button" type="button"></button>
         </section>
         <section class="list-of-elements" aria-label="Список карточек">
-            <ul class="elements">
-
-            </ul>
+            <ul class="elements"></ul>
         </section>
-        <footer class="footer">
-            <p class="footer__title">© 2020 Mesto Russia</p>
-        </footer>
-        <div class="popup">
-            <div class="popup__container">
-                <button class="popup__button-close" type="button"></button>
-                <form class="popup__form-profile" name="popupForm" method="POST">
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <input class="popup__text" type="text" placeholder="Имя" name ="newName" required>
-                    <input class="popup__text" type="text" placeholder="Описание" name="newDescription" required>
-                    <button class="popup__submit-btn" type="submit">Сохранить</button>
-                </form>
-            </div>
-        </div>
-        <div class="popup-add">
-            <div class="popup-add__container">
-                <button class="popup-add__button-close" type="button"></button>
-                <form class="popup-add__form" name="popupAdd" method="POST">
-                    <h2 class="popup-add__title">Новое место</h2>
-                    <input class="popup-add__text" type="text" placeholder="Название" name ="Name" required>
-                    <input class="popup-add__text" type="url" placeholder="Ссылка на картинку" name="Link" required>
-                    <button class="popup-add__submit-btn" type="submit">Создать</button>
-                </form>
-            </div>
-        </div>
-        <div class="popup-image">
-            <div class="popup-image__container">
-                <button class="popup-image__button-close" type="button"></button>
-                <img class="popup-image__image" src="link" alt="Описание картинки">
-                <p class="popup-image__title">Иваново</p>
-            </div>
-        </div>
-
     </main>
-
+    <footer class="footer">
+        <p class="footer__title">© 2020 Mesto Russia</p>
+    </footer>
+    <div class="popup popup-profile">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"></button>
+          <form class="popup-profile__form" name="popupForm" method="POST">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input class="popup__text" type="text" placeholder="Имя" name ="newName" required>
+            <input class="popup__text" type="text" placeholder="Описание" name="newDescription" required>
+            <button class="popup__submit-btn" type="submit">Сохранить</button>
+          </form>
+        </div>
+    </div>
+    <div class="popup popup-add">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"></button>
+        <form class="popup-add__form" name="popupAdd" method="POST">
+          <h2 class="popup__title">Новое место</h2>
+          <input class="popup__text" type="text" placeholder="Название" name ="Name" required>
+          <input class="popup__text" type="url" placeholder="Ссылка на картинку" name="Link" required>
+          <button class="popup__submit-btn" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup-image">
+      <div class="popup-image__container">
+        <button class="popup__button-close" type="button"></button>
+        <img class="popup-image__image" src="https://images.unsplash.com/photo-1611214260857-6b49693a2582?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80" alt="Описание картинки">
+        <p class="popup-image__title">Мурманск</p>
+      </div>
+    </div>
     <template class="temp-element">
         <li class="element">
             <div class="element__image">
@@ -71,7 +67,6 @@
             </div>
         </li>
     </template>
-
     <script src="./scripts/script.js"></script>
 </body>
 </html>
