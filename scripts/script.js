@@ -70,10 +70,19 @@ initialCards.forEach((el) => {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+}
+
+function closeByEscape (evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
 }
 
 function likeCard (event) {
@@ -123,47 +132,37 @@ popupList.forEach((popup) => {
       closePopup(popup);
     }
   });
-  popup.addEventListener('keydown', (evt) => {
-    if (evt.key==='Escape') {
-      closePopup(popup);
-    };
-  });
 });
+
+
 
 const openFormProfile = () => {
   formPopup.newName.value = profileName.textContent;
   formPopup.newDescription.value = profileJob.textContent;
-  enableValidation(validationConfig);
   openPopup(profilePopup);
 }
 
 const editProfile = event => {
   event.preventDefault();
-
-  if (!hasInvalidInput(inputListProfile)) {
-    profileName.textContent = formPopup.newName.value;
-    profileJob.textContent = formPopup.newDescription.value;
-    const popup = event.target.closest('.popup');
-    closePopup(popup);
-  }
+  profileName.textContent = formPopup.newName.value;
+  profileJob.textContent = formPopup.newDescription.value;
+  const popup = event.target.closest('.popup');
+  closePopup(popup);
 }
 
 const openFormCard = () => {
   formPopupAdd.Name.value = '';
   formPopupAdd.Link.value = '';
-  enableValidation(validationConfig);
   openPopup(addCardPopup);
 }
 
 const addCard = event => {
   event.preventDefault();
-  if (!hasInvalidInput(inputListCard)) {
-    const nameCard = formPopupAdd.Name.value;
-    const linkCard = formPopupAdd.Link.value;
-    elementsList.prepend(createCard(nameCard,linkCard));
-    const popup = event.target.closest('.popup');
-    closePopup(popup);
-  }
+  const nameCard = formPopupAdd.Name.value;
+  const linkCard = formPopupAdd.Link.value;
+  elementsList.prepend(createCard(nameCard,linkCard));
+  const popup = event.target.closest('.popup');
+  closePopup(popup);
 }
 
   formProfile.addEventListener('submit', editProfile);
