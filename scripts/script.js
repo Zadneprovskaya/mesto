@@ -1,31 +1,3 @@
-const container = document.querySelector('.container');
-const profileInfo = container.querySelector('.profile-info');
-const editButton = profileInfo.querySelector('.profile-info__edit-button');
-const profileName = profileInfo.querySelector('.profile-info__name');
-const profileJob = profileInfo.querySelector('.profile-info__description');
-const addButton = container.querySelector('.profile__add-button');
-
-const profilePopup = document.querySelector('.popup-profile');
-const formProfile = profilePopup.querySelector('.popup-profile__form');
-const inputListProfile = Array.from(formProfile.querySelectorAll('.popup__text'));
-
-const closeButtonPopup = document.querySelector('.popup__button-close');
-const closeButtonPopupAdd = document.querySelector('.popup-add__button-close');
-const closeButtonPopupImage = document.querySelector('.popup-image__button-close');
-
-const addCardPopup = document.querySelector('.popup-add');
-const addCardForm = addCardPopup.querySelector('.popup-add__form');
-const inputListCard= Array.from(addCardForm.querySelectorAll('.popup__text'));
-const openImagePopup = document.querySelector('.popup-image');
-const elementImage = openImagePopup.querySelector('.popup-image__image');
-const elementTitle = openImagePopup.querySelector('.popup-image__title');
-
-const formPopup = document.forms.popupForm;
-const formPopupAdd = document.forms.popupAdd;
-
-const elementsList = container.querySelector('.elements');
-const elementTemplate = document.querySelector('.temp-element').content;
-
 const validationConfig = {
   popupSelector: '.popup',
   inputSelector: '.popup__text',
@@ -36,6 +8,34 @@ const validationConfig = {
   inputErrorClass: 'popup__text_type_error',
   errorClass: 'popup__text-error_active'
 };
+
+const container = document.querySelector('.container');
+const profileInfo = container.querySelector('.profile-info');
+const editButton = profileInfo.querySelector('.profile-info__edit-button');
+const profileName = profileInfo.querySelector('.profile-info__name');
+const profileJob = profileInfo.querySelector('.profile-info__description');
+const addButton = container.querySelector('.profile__add-button');
+
+const profilePopup = document.querySelector('.popup-profile');
+const formProfile = profilePopup.querySelector('.popup-profile__form');
+
+const closeButtonPopup = document.querySelector('.popup__button-close');
+const closeButtonPopupAdd = document.querySelector('.popup-add__button-close');
+const closeButtonPopupImage = document.querySelector('.popup-image__button-close');
+
+const addCardPopup = document.querySelector('.popup-add');
+const addCardForm = addCardPopup.querySelector('.popup-add__form');
+const addCardButton = addCardPopup.querySelector(validationConfig.submitButtonSelector);
+const openImagePopup = document.querySelector('.popup-image');
+const elementImage = openImagePopup.querySelector('.popup-image__image');
+const elementTitle = openImagePopup.querySelector('.popup-image__title');
+
+const formPopup = document.forms.popupForm;
+const formPopupAdd = document.forms.popupAdd;
+
+const elementsList = container.querySelector('.elements');
+const elementTemplate = document.querySelector('.temp-element').content;
+
 
 const initialCards = [
   {
@@ -134,8 +134,6 @@ popupList.forEach((popup) => {
   });
 });
 
-
-
 const openFormProfile = () => {
   formPopup.newName.value = profileName.textContent;
   formPopup.newDescription.value = profileJob.textContent;
@@ -153,6 +151,8 @@ const editProfile = event => {
 const openFormCard = () => {
   formPopupAdd.Name.value = '';
   formPopupAdd.Link.value = '';
+  addCardButton.classList.add(validationConfig.inactiveButtonClass);
+  addCardButton.disabled = true;
   openPopup(addCardPopup);
 }
 

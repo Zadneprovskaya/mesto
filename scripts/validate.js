@@ -16,9 +16,7 @@ function hideInputError (formElement, inputElement, config) {
 
 function isValid (formElement, inputElement, config) {
   if (!inputElement.validity.valid) {
-    if (!(inputElement.id === config.inputException) || !(inputElement.validity.tooShort)) {
       showInputError(formElement, inputElement, inputElement.validationMessage, config);
-    }
   } else {
     hideInputError(formElement, inputElement, config);
   }
