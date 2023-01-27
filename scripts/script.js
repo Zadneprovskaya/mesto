@@ -19,22 +19,14 @@ const addButton = container.querySelector('.profile__add-button');
 const profilePopup = document.querySelector('.popup-profile');
 const formProfile = profilePopup.querySelector('.popup-profile__form');
 
-const closeButtonPopup = document.querySelector('.popup__button-close');
-const closeButtonPopupAdd = document.querySelector('.popup-add__button-close');
-const closeButtonPopupImage = document.querySelector('.popup-image__button-close');
-
 const addCardPopup = document.querySelector('.popup-add');
 const addCardForm = addCardPopup.querySelector('.popup-add__form');
 const addCardButton = addCardPopup.querySelector(validationConfig.submitButtonSelector);
-const openImagePopup = document.querySelector('.popup-image');
-const elementImage = openImagePopup.querySelector('.popup-image__image');
-const elementTitle = openImagePopup.querySelector('.popup-image__title');
 
 const formPopup = document.forms.popupForm;
 const formPopupAdd = document.forms.popupAdd;
 
 const elementsList = container.querySelector('.elements');
-const elementTemplate = document.querySelector('.temp-element').content;
 
 
 const initialCards = [
@@ -64,9 +56,6 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach((el) => {
-  elementsList.prepend(createCard(el.name,el.link));
-});
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -85,44 +74,17 @@ function closeByEscape (evt) {
   }
 }
 
-function likeCard (event) {
-  event.target.classList.toggle('element__like_active');
-}
+import { Card } from "./Card.js";
 
-function deleteCard (event) {
-  const elementDeleteCard = event.target.closest('.element');
-  elementDeleteCard.remove();
-}
-
-function showImage (event) {
-  if(!event.target.classList.contains('element__trash')) {
-    const imageLink = event.target.style.backgroundImage.slice(5,event.target.style.backgroundImage.length - 2);
-    const imageTitle = event.target.closest('.element').querySelector('.element__title').textContent;
-    elementImage.src = imageLink;
-    elementImage.alt = imageTitle + " во весь экран";
-    elementTitle.textContent = imageTitle;
-    openPopup(openImagePopup);
+initialCards.forEach((el) => {
+  const dataCard = {
+    nameCard: el.name,
+    linkCard: el.link
   }
-}
 
-function createCard(nameCard,linkCard) {
-  const elementCard = elementTemplate.querySelector('.element').cloneNode(true);
-  const cardImage = elementCard.querySelector('.element__image');
-  const cardTitle = elementCard.querySelector('.element__title');
-  cardImage.style = "background-image:url('" + linkCard + "');";
-  cardTitle.textContent = nameCard;
-
-  const elementLike = elementCard.querySelector('.element__like');
-  elementLike.addEventListener('click',likeCard);
-
-  const elementTrash = elementCard.querySelector('.element__trash');
-  elementTrash.addEventListener('click',deleteCard);
-
-  const elementImageShow = elementCard.querySelector('.element__image');
-  elementImageShow.addEventListener('click',showImage);
-
-return elementCard;
-}
+  const card = new Card(dataCard,'.temp-element',openPopup);
+  elementsList.prepend(card.generateCard());
+});
 
 const popupList = document.querySelectorAll('.popup');
 popupList.forEach((popup) => {
@@ -158,9 +120,13 @@ const openFormCard = () => {
 
 const addCard = event => {
   event.preventDefault();
-  const nameCard = formPopupAdd.Name.value;
-  const linkCard = formPopupAdd.Link.value;
-  elementsList.prepend(createCard(nameCard,linkCard));
+  const dataCard = {
+    nameCard: formPopupAdd.Name.value,
+    linkCard: formPopupAdd.Link.value
+  }
+
+  const card = new Card(dataCard,'.temp-element',openPopup);
+  elementsList.prepend(card.generateCard());
   const popup = event.target.closest('.popup');
   closePopup(popup);
 }
@@ -169,3 +135,9 @@ const addCard = event => {
   editButton.addEventListener ('click',openFormProfile);
   addButton.addEventListener ('click',openFormCard);
   addCardForm.addEventListener('submit', addCard);
+
+import { FormValidator } from "./FormValidator.js";
+const profileFormValidation = new FormValidator(validationConfig,profilePopup);
+const cardFormValidation = new FormValidator(validationConfig,addCardPopup);
+profileFormValidation.enableValidation();
+cardFormValidation.enableValidation();
