@@ -1,7 +1,6 @@
 const validationConfig = {
   popupSelector: '.popup',
   inputSelector: '.popup__text',
-  popupException: 'popup-image',
   inputException: 'name-card-input',
   submitButtonSelector: '.popup__submit-btn',
   inactiveButtonClass: 'popup__submit-btn_type_invalid',

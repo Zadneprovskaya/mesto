@@ -2,7 +2,6 @@ export class FormValidator {
   constructor (validationConfig, popupName) {
     this.popupSelector = validationConfig.popupSelector;
     this.inputSelector = validationConfig.inputSelector;
-    this.popupException = validationConfig.popupException;
     this.inputException = validationConfig.inputException;
     this.submitButtonSelector = validationConfig.submitButtonSelector;
     this.inactiveButtonClass = validationConfig.inactiveButtonClass;
