@@ -1,9 +1,9 @@
 export class Card {
-  constructor (data, templateSelector, openPopup) {
+  constructor (data, templateSelector, handleCardClick) {
     this._title = data.nameCard;
     this._link = data.linkCard;
     this._templateSelector = templateSelector;
-    this._openPopup = openPopup;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -17,51 +17,43 @@ export class Card {
   }
 
   _likeCard () {
-    this._element.querySelector('.element__like').classList.toggle('element__like_active');
+    this._likeButton.classList.toggle('element__like_active');
   }
 
   _deleteCard () {
-    this._element.querySelector('.element__trash').closest('.element').remove();
-  }
-
-  _checkClick () {
-    const clickTrash = this._element.addEventListener('click',this._click);
-    console.log(clickTrash);
-    return clickTrash
+    this._cardTrash.closest('.element').remove();
   }
 
   _showImage (event) {
     if(!event.target.classList.contains('element__trash')) {
-      const openImagePopup = document.querySelector('.popup-image');
-      const elementImage = openImagePopup.querySelector('.popup-image__image');
-      const elementTitle = openImagePopup.querySelector('.popup-image__title');
-      elementImage.src = this._element.querySelector('.element__image').style.backgroundImage.slice(5,this._element.querySelector('.element__image').style.backgroundImage.length - 2);
-      elementImage.alt = this._element.querySelector('.element__image').closest('.element').querySelector('.element__title').textContent + " во весь экран";
-      elementTitle.textContent = this._element.closest('.element').querySelector('.element__title').textContent;
-      this._openPopup(openImagePopup);
+      this._handleCardClick(this._title, this._link)
     }
   }
 
   _setEventListeners() {
-    this._element.querySelector('.element__like').addEventListener('click', () => {
+    this._likeButton.addEventListener('click', () => {
       this._likeCard();
     });
 
-    this._element.querySelector('.element__trash').addEventListener('click', () => {
+    this._cardTrash.addEventListener('click', () => {
       this._deleteCard();
     });
 
-    this._element.querySelector('.element__image').addEventListener('click', event => {
+    this._cardImage.addEventListener('click', event => {
       this._showImage(event);
     });
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._likeButton = this._element.querySelector('.element__like');
+    this._cardImage = this._element.querySelector('.element__image');
+    this._cardTrash = this._element.querySelector('.element__trash');
+    this._cardTitle = this._element.querySelector('.element__title');
     this._setEventListeners();
 
-    this._element.querySelector('.element__image').style = "background-image:url('" + this._link + "');";
-    this._element.querySelector('.element__title').textContent = this._title;
+    this._cardImage.style = "background-image:url('" + this._link + "');";
+    this._cardTitle.textContent = this._title;
 
     return this._element;
   }
