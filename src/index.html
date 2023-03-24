@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 <body class="page">
     <header class="header">
-        <img class="header__logo" src="./images/Vector.svg" alt="Логотип Mesto">
+        <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="Логотип Mesto">
     </header>
     <main class="container">
         <section class="profile">
-            <img class="profile__avatar" src="./images/image.jpg" alt="Аватар">
+            <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
             <div class="profile-info">
                 <h1 class="profile-info__name">Жак-Ив Кусто</h1>
                 <button class="profile-info__edit-button" type="button"></button>
@@ -45,9 +44,9 @@
         <button class="popup__button-close" type="button"></button>
         <form class="popup-add__form" name="popupAdd" method="POST" novalidate>
           <h2 class="popup__title">Новое место</h2>
-          <input id="name-card-input" class="popup__text" type="text" placeholder="Название" name ="Name" minlength="2" maxlength="30" required>
+          <input id="name-card-input" class="popup__text" type="text" placeholder="Название" name ="name" minlength="2" maxlength="30" required>
           <span class="name-card-input-error popup__text-error"></span>
-          <input id="link-input" class="popup__text" type="url" placeholder="Ссылка на картинку" name="Link" required>
+          <input id="link-input" class="popup__text" type="url" placeholder="Ссылка на картинку" name="link" required>
           <span class="link-input-error popup__text-error"></span>
           <button class="popup__submit-btn" type="submit">Создать</button>
         </form>
@@ -71,8 +70,5 @@
             </div>
         </li>
     </template>
-    <script type="module" src="./scripts/script.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
 </body>
 </html>

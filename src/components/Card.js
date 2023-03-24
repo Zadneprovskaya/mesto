@@ -1,7 +1,7 @@
 export class Card {
-  constructor (data, templateSelector, handleCardClick) {
-    this._title = data.nameCard;
-    this._link = data.linkCard;
+  constructor (data, templateSelector, { handleCardClick }) {
+    this._title = data.name;
+    this._link = data.link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
   }
@@ -16,15 +16,15 @@ export class Card {
     return elementCard;
   }
 
-  _likeCard () {
+  _likeCard() {
     this._likeButton.classList.toggle('element__like_active');
   }
 
-  _deleteCard () {
+  _deleteCard() {
     this._cardTrash.closest('.element').remove();
   }
 
-  _showImage (event) {
+  _showImage(event) {
     if(!event.target.classList.contains('element__trash')) {
       this._handleCardClick(this._title, this._link)
     }
