@@ -12,22 +12,25 @@ import {
   addButton,
   profilePopup,
   addCardPopup,
-  formPopup,
-  formPopupAdd
+  formPopup
 } from '../utils/constants.js';
 
 const popupImage = new PopupWithImage('.popup-image');
 
+function createCard(data) {
+  const card = new Card(data,'.temp-element',{
+    handleCardClick: () => {
+      popupImage.open(data);
+    }
+  });
+  const cardElement = card.generateCard();
+  return cardElement;
+}
+
 const cardsList = new Section({
   data: initialCards,
   renderer: (item) => {
-    const card = new Card(item,'.temp-element',{
-      handleCardClick: () => {
-        popupImage.open(item);
-      }
-    });
-    const cardElement = card.generateCard();
-    cardsList.addItem(cardElement);
+    cardsList.addItem(createCard(item));
     }
   },
   '.elements'
@@ -39,21 +42,15 @@ const userInfo = new UserInfo({
 });
 
 const popupFormProfile = new PopupWithForm('.popup-profile',{
-  handleFormSubmit: () => {
-    userInfo.setUserInfo({ name: formPopup.newName.value, info: formPopup.newDescription.value });
+  handleFormSubmit: (profileInfo) => {
+    userInfo.setUserInfo({ name: profileInfo.newName, info: profileInfo.newDescription });
     popupFormProfile.close();
   }
 });
 
 const popupFormCard = new PopupWithForm('.popup-add',{
   handleFormSubmit: (item) => {
-    const card = new Card(item,'.temp-element',{
-      handleCardClick: () => {
-        popupImage.open(item);
-      }
-    });
-    const cardElement = card.generateCard();
-    cardsList.addItem(cardElement);
+    cardsList.addItem(createCard(item));
     popupFormCard.close();
   }
 });
@@ -72,8 +69,6 @@ const openFormProfile = () => {
 }
 
 const openFormCard = () => {
-  formPopupAdd.name.value = '';
-  formPopupAdd.link.value = '';
   cardFormValidation.resetValidation();
   popupFormCard.open();
 }

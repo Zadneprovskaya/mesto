@@ -1,5 +1,5 @@
 export class FormValidator {
-  constructor (validationConfig, popupName) {
+  constructor (validationConfig, popupForm) {
     this._popupSelector = validationConfig.popupSelector;
     this._inputSelector = validationConfig.inputSelector;
     this._inputException = validationConfig.inputException;
@@ -7,13 +7,13 @@ export class FormValidator {
     this._inactiveButtonClass = validationConfig.inactiveButtonClass;
     this._inputErrorClass = validationConfig.inputErrorClass;
     this._errorClass = validationConfig.errorClass;
-    this._popupName = popupName;
-    this._inputList = Array.from(this._popupName.querySelectorAll(this._inputSelector));
-    this._buttonElement = this._popupName.querySelector(this._submitButtonSelector);
+    this._popupForm = popupForm;
+    this._inputList = Array.from(this._popupForm.querySelectorAll(this._inputSelector));
+    this._buttonElement = this._popupForm.querySelector(this._submitButtonSelector);
   }
 
   _showInputError (inputElement) {
-    const errorElement = this._popupName.querySelector(`.${inputElement.id}-error`);
+    const errorElement = this._popupForm.querySelector(`.${inputElement.id}-error`);
 
     inputElement.classList.add(this._inputErrorClass);
     errorElement.textContent = inputElement.validationMessage;
@@ -21,7 +21,7 @@ export class FormValidator {
   };
 
   _hideInputError (inputElement) {
-    const errorElement = this._popupName.querySelector(`.${inputElement.id}-error`);
+    const errorElement = this._popupForm.querySelector(`.${inputElement.id}-error`);
 
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
