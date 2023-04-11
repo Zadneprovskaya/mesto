@@ -17,3 +17,4 @@ export const profilePopup = document.querySelector('.popup-profile');
 export const addCardPopup = document.querySelector('.popup-add');
 export const avatarPopup = document.querySelector('.popup-avatar');
 export const formPopup = document.forms.popupForm;
+export const id = null;

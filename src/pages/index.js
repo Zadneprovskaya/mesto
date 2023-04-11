@@ -15,21 +15,23 @@ import {
   profilePopup,
   addCardPopup,
   avatarPopup,
-  formPopup
+  formPopup,
+  id
 } from '../utils/constants.js';
 
+let userId = id;
 
 function handleCardClick(card) {
   popupImage.open(card);
 }
 
-function handleTrashClick(id, card) {
-  popupWithConfirm.setSubmitAction(() => handleDeleteConfirm(id, card))
+function handleTrashClick(userId, card) {
+  popupWithConfirm.setSubmitAction(() => handleDeleteConfirm(userId, card))
   popupWithConfirm.open();
 }
 
-function handleDeleteConfirm(id, card) {
-  api.removeCard(id)
+function handleDeleteConfirm(userId, card) {
+  api.removeCard(userId)
     .then(() => {
       card.deleteCard();
       popupWithConfirm.close();
@@ -39,19 +41,19 @@ function handleDeleteConfirm(id, card) {
     });
 }
 
-function handleLikeClick(id, isLiked, card) {
+function handleLikeClick(userId, isLiked, card) {
   if (isLiked) {
-    api.dislikedCard(id)
+    api.dislikedCard(userId)
       .then((data) => {
-        card.likeCard(data.likes);
+        card.changeStatusLike(data.likes);
       })
       .catch((err) => {
         console.log(err);
       });
   } else {
-    api.likedCard(id)
+    api.likedCard(userId)
       .then((data) => {
-        card.likeCard(data.likes);
+        card.changeStatusLike(data.likes);
       })
       .catch((err) => {
         console.log(err);
@@ -131,8 +133,8 @@ addButton.addEventListener ('click',openFormCard);
 changeAvatarButton.addEventListener ('click',openFormAvatar);
 
 
-function createCard(data, id) {
-  const card = new Card('.temp-element', id, {
+function createCard(data) {
+  const card = new Card('.temp-element', userId, {
     data: data,
     handleCardClick,
     handleTrashClick,
@@ -143,8 +145,8 @@ function createCard(data, id) {
 }
 
 const cardsList = new Section({
-  renderer: (cardItem, id) => {
-    cardsList.addItemAppend(createCard(cardItem, id));
+  renderer: (cardItem) => {
+    cardsList.addItemAppend(createCard(cardItem));
     }
   },
   '.elements'
@@ -194,8 +196,9 @@ Promise.all([
     api.getInitialCards()
   ])
   .then((values) => {
+    userId = values[0]._id;
     userInfo.setUserInfo({ name: values[0].name, info: values[0].about, avatar: values[0].avatar });
-    cardsList.renderItems(values[1], values[0]._id);
+    cardsList.renderItems(values[1]);
   })
   .catch((err) => {
     console.log(err);

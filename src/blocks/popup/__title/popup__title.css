@@ -1,7 +1,7 @@
 .popup__title {
     margin: 0;
     padding-left: 36px;
-    padding-bottom: 24px;
+    padding-bottom: 30px;
     padding-top: 34px;
     max-width: 330px;
     font-weight: 900;
@@ -16,7 +16,6 @@
         font-size: calc((100vw - 320px)/(1280 - 320)*(24 - 18) + 18px);
         line-height: calc((100vw - 320px)/(1280 - 320)*(29 - 22) + 22px);
         padding-left: calc((100vw - 320px)/(1280 - 320)*(36 - 22) + 22px);
-        padding-bottom: calc((100vw - 320px)/(1280 - 320)*(24 - 45) + 45px);
         padding-top: calc((100vw - 320px)/(1280 - 320)*(34 - 25) + 25px);
     }
 }
@@ -27,7 +26,6 @@
         font-size: 18px;
         line-height: 22px;
         padding-left: 22px;
-        padding-bottom: 45px;
         padding-top: 25px;
     }
 }

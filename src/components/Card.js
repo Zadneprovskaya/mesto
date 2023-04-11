@@ -29,7 +29,7 @@ export class Card {
     });
   }
 
-  likeCard(likes) {
+  changeStatusLike(likes) {
     this._element.querySelector('.element__count-like').textContent = likes.length;
     this._likes = likes;
     if (this._checkLike()) {
@@ -78,7 +78,7 @@ export class Card {
       this._cardTrash.remove();
     }
 
-    this.likeCard(this._likes);
+    this.changeStatusLike(this._likes);
     this._setEventListeners();
 
     return this._element;
