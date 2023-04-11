@@ -8,37 +8,12 @@ export const validationConfig = {
   errorClass: 'popup__text-error_active'
 };
 
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 export const container = document.querySelector('.container');
 export const profileInfo = container.querySelector('.profile-info');
 export const editButton = profileInfo.querySelector('.profile-info__edit-button');
 export const addButton = container.querySelector('.profile__add-button');
+export const changeAvatarButton = container.querySelector('.profile-image__change-button');
 export const profilePopup = document.querySelector('.popup-profile');
 export const addCardPopup = document.querySelector('.popup-add');
+export const avatarPopup = document.querySelector('.popup-avatar');
 export const formPopup = document.forms.popupForm;
