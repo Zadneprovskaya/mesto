@@ -4,8 +4,8 @@ export const validationConfig = {
   inputException: 'name-card-input',
   submitButtonSelector: '.popup__submit-btn',
   inactiveButtonClass: 'popup__submit-btn_type_invalid',
-  inputErrorClass: 'popup__text_type_error',
-  errorClass: 'popup__text-error_active'
+  inputErrorClass: 'popup__text_type_error'
+
 };
 
 export const container = document.querySelector('.container');
